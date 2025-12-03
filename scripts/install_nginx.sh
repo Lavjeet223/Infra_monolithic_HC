@@ -1,8 +1,11 @@
 #! /usr/bin/env bash
 
-set -euo pipefail
+# Fail on Errors
+set -euo pipefail # Exit on error, undefined variable, or error in a pipeline command
 
-echo "[INFO] Installing Nginx"
+# Install Nginx
+echo "[INFO] Installing Nginx" # Installing Nginx web server
 
-sudo apt update
-sudo apt install nginx -y
+# Update package lists and install Nginx
+sudo apt update # Update package lists
+sudo apt install nginx -y # Install Nginx
