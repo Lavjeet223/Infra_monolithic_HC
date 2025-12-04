@@ -1,8 +1,41 @@
 rgs = {
   rg-TodoInfra-UK = {
     location = "southindia"
+    tags = {
+      environment = "dev"
+      project     = "TodoInfra"
+    }
   }
 }
+
+
+storage_accounts = {
+  uktodoapp01stg1 = {
+    resource_group_name      = "rg-TodoInfra-UK"
+    location                 = "southindia"
+    account_tier             = "Standard"
+    account_replication_type = "LRS"
+    min_tls_version          = "TLS1_2"
+    ips_allowed              = ["203.0.113.10", "203.0.113.11"] # Give any public IPs to allow access and if no IPs provided, allow from all by default []
+    tags = {
+      environment = "dev"
+      project     = "UKTodoApp01"
+    }
+  }
+  uktodoapp01stg2 = {
+    resource_group_name      = "rg-TodoInfra-UK"
+    location                 = "southindia"
+    account_tier             = "Standard"
+    account_replication_type = "LRS"
+    min_tls_version          = "TLS1_1"
+    ips_allowed              = [] #["203.0.113.10", "203.0.113.11", "203.0.113.11"]
+    tags = {
+      environment = "dev"
+      project     = "UKTodoApp01"
+    }
+  }
+}
+
 
 vnets_subnets = {
   vnet-TodoInfra-UK = {

@@ -3,6 +3,12 @@ module "rgs" {
   rgs    = var.rgs
 }
 
+module "storage_accounts" {
+  depends_on       = [module.rgs]
+  source           = "../modules/StorageAccount_Dynamic"
+  storage_accounts = var.storage_accounts
+}
+
 module "networking" {
   depends_on    = [module.rgs]
   source        = "../modules/Networking"
