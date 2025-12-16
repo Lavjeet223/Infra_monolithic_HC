@@ -6,7 +6,7 @@ resource "azurerm_virtual_network" "vnets" {
   address_space       = each.value.address_space
 
   dynamic "subnet" {
-    for_each = contains(keys(each.value), "subnets") ? each.value.subnets : {}
+    for_each = contains(keys(each.value), "subnets") ? each.value.subnets : {} # for_each = lookup(each.value, "subnets", {})
     content {
       name             = subnet.key
       address_prefixes = subnet.value.address_prefixes
